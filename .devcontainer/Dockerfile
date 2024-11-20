@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/devcontainers/javascript-node:0-18
+FROM mcr.microsoft.com/devcontainers/javascript-node:0-20
 
 # Install Vue CLI globally
 RUN npm install -g @vue/cli
