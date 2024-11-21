@@ -10,32 +10,17 @@ const routes = [
   {
     path: '/descubre',
     name: 'Discover',
-    component: Home,
-    beforeEnter: (to, from, next) => {
-      next({ path: '/', hash: '#descubre' })
-    }
+    component: Home
   },
   {
     path: '/sobre-nosotros',
     name: 'About',
-    component: Home,
-    beforeEnter: (to, from, next) => {
-      next({ path: '/', hash: '#sobre-nosotros' })
-    }
+    component: Home
   },
-
   {
-    path: '/contactanos',
+    path: '/contacto',
     name: 'Contact',
-    component: Home,
-    beforeEnter: (to, from, next) => {
-      next({ path: '/', hash: '#contactanos' })
-    }
-  },
-  {
-    path: '/registro',
-    name: 'Register',
-    component: () => import('../views/Register.vue')
+    component: Home
   }
 ]
 
@@ -43,14 +28,17 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
   scrollBehavior(to, from, savedPosition) {
-    if (to.hash) {
-      return {
-        el: to.hash,
-        behavior: 'smooth',
-        top: 80
-      }
+    if (savedPosition) {
+      return savedPosition
     }
-    return { top: 0 }
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({
+          top: 0,
+          behavior: 'smooth'
+        })
+      }, 100)
+    })
   }
 })
 

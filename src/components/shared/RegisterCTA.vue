@@ -1,6 +1,6 @@
 <template>
   <router-link 
-    to="/registro" 
+    to="/" 
     :class="[
       'inline-flex flex-col items-center justify-center px-8 py-3 rounded-full transition-all font-medium border-2',
       variant === 'primary' 

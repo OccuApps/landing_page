@@ -42,7 +42,7 @@
         alt="" 
         class="absolute bottom-[5%] right-0 w-[250px] sm:w-[300px] lg:w-[350px] 
                transform translate-y-2/3
-               hidden md:block"
+               hidden md:block z-10"
         aria-hidden="true"
       />
     </div>

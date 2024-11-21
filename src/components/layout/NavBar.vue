@@ -28,7 +28,7 @@
             Sobre nosotros
           </router-link>
           <router-link 
-            to="/contactanos"
+            to="/contacto"
             class="nav-link text-white hover:text-white/90 transition-colors"
           >
             Contactanos
@@ -88,7 +88,7 @@
             Sobre nosotros
           </router-link>
           <router-link 
-            to="/contactanos" 
+            to="/contacto" 
             class="block px-3 py-2 text-white hover:text-white/90"
             @click="isOpen = false"
           >
