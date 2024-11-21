@@ -1,51 +1,47 @@
 <template>
   <div>
-    <HeroSection id="home" />
-    <DiscoverSection id="descubre" />
-    <AboutSection id="sobre-nosotros" />
-    <ContactSection id="contacto" />
+    <section id="home">
+      <HeroSection />
+    </section>
+    <section id="descubre">
+      <DiscoverSection />
+    </section>
+    <section id="sobre-nosotros">
+      <AboutSection />
+    </section>
+    <section id="contacto">
+      <ContactSection />
+    </section>
   </div>
 </template>
 
 <script setup>
-import { onMounted, onUnmounted } from 'vue'
-import { useRouter } from 'vue-router'
-import HeroSection from '../components/sections/HeroSection.vue'
-import DiscoverSection from '../components/sections/DiscoverSection.vue'
-import AboutSection from '../components/sections/AboutSection.vue'
-import ContactSection from '../components/sections/ContactSection.vue'
+import { onMounted } from "vue";
+import { useRoute } from "vue-router";
+import HeroSection from "../components/sections/HeroSection.vue";
+import DiscoverSection from "../components/sections/DiscoverSection.vue";
+import AboutSection from "../components/sections/AboutSection.vue";
+import ContactSection from "../components/sections/ContactSection.vue";
 
-const router = useRouter()
+const route = useRoute();
 
-// Intersection Observer to handle scroll-based routing
-const observerOptions = {
-  root: null,
-  rootMargin: '-80px 0px 0px 0px', // Adjust for navbar height
-  threshold: [0.3] // Increase threshold for better accuracy
-}
-
-const handleIntersect = (entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const sectionId = entry.target.id
-      router.push({ 
-        path: sectionId === 'home' ? '/' : `/${sectionId}` 
-      }, { replace: true })
-    }
-  })
-}
-
-// onMounted(() => {
-//   const observer = new IntersectionObserver(handleIntersect, observerOptions)
-  
-//   // Observe all sections
-//   document.querySelectorAll('section[id]').forEach(section => {
-//     observer.observe(section)
-//   })
-
-//   // Cleanup
-//   onUnmounted(() => {
-//     observer.disconnect()
-//   })
-// })
+onMounted(() => {
+  // Only scroll on initial page load
+  const initialSection = route.path === '/' ? 'home' : route.path.substring(1);
+  const element = document.getElementById(initialSection);
+  if (element) {
+    const top = element.offsetTop - 80;
+    window.scrollTo({
+      top,
+      behavior: 'smooth'
+    });
+  }
+});
 </script>
+
+<style scoped>
+section {
+  min-height: 100vh;
+  scroll-margin-top: 80px;
+}
+</style>

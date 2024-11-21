@@ -1,5 +1,5 @@
 <template>
-  <section id="contacto" class="min-h-screen w-full bg-primary-dark flex items-center snap-start">
+  <div  class="min-h-screen w-full bg-primary-dark flex items-center snap-start">
     <div class="max-w-3xl mx-auto px-8 py-20">
       <h2 class="text-4xl font-bold text-center mb-8">Contáctanos</h2>
       <p class="text-center mb-8">Contactanos o envíanos tus comentarios.</p>
@@ -61,7 +61,7 @@
         </button>
       </form>
     </div>
-  </section>
+  </div>
 </template>
 
 <script setup>

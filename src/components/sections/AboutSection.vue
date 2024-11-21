@@ -1,5 +1,5 @@
 <template>
-  <section id="sobre-nosotros" class="min-h-screen w-full relative flex items-center overflow-hidden">
+  <div class="min-h-screen w-full relative flex items-center overflow-hidden">
     <!-- Background image with overlay -->
     <div class="absolute inset-0">
       <img 
@@ -48,7 +48,7 @@
       </div>
     
     </div>
-  </section>
+  </div>
 </template>
 
 <script setup>

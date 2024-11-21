@@ -5,20 +5,17 @@
 @layer base {
   html {
     font-family: 'League Spartan', sans-serif;
-    scroll-padding-top: 80px; /* Should match your navbar height */
     scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+    overscroll-behavior: none;
   }
+
+  section {
+    min-height: 100vh;
+    scroll-margin-top: 80px;
+  }
+
   body {
     @apply w-full overflow-x-hidden;
   }
-}
-
-.snap-container {
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
-  height: 100vh;
-}
-
-.snap-start {
-  scroll-snap-align: start;
 }
