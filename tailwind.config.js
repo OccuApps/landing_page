@@ -9,6 +9,7 @@ export default {
           dark: "rgba(129, 107, 85, 0.4)",
         },
         secondary: "#b3b1ae",
+        
       },
       fontFamily: {
         sans: ["League Spartan", "sans-serif"],
