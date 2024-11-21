@@ -15,7 +15,7 @@
     <img 
       src="/coffee-beans.png" 
       alt="" 
-      class="absolute top-0 right-0 w-[300px] sm:w-[450px] lg:w-[700px] rotate-[90deg] h-auto transform translate-x-1/4 -translate-y-1/4"
+      class="absolute top-0 right-0 w-[300px] sm:w-[450px] lg:w-[700px] rotate-[90deg] h-auto transform translate-x-1/4 -translate-y-1/4 hidden md:block pointer-events-none"
       aria-hidden="true"
     />
 
