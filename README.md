@@ -1,5 +1,57 @@
-# Vue 3 + Vite
+# OCCU - Marketplace for Independent Cafes
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+A marketplace platform designed to connect independent cafes with coffee enthusiasts.
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+## About
+
+OCCU is an online marketplace designed to satisfy the technological needs and essential elements of your cafe. Since 2020, we've focused on creating a space for all types of coffee lovers - from those who prepare it in their cafes or at home, to those who enjoy finding authentic experiences in independent cafeterias.
+
+## Features
+
+- Free registration for cafes
+- Detailed cafe profiles
+- Order management system
+- Customer engagement tools
+- Mobile-responsive design
+
+## Technology Stack
+
+- Vue 3
+- Vue Router
+- Tailwind CSS
+- Vite
+
+## Getting Started
+
+1. Clone the repository
+```bash
+git clone git@github.com:OccuApps/landing_page.git
+```
+2. Install dependencies
+```bash
+npm install
+```
+2. Run development server
+```bash
+npm run dev
+```
+
+## Project Structure
+```bash
+src/
+├── components/
+│   ├── layout/
+│   │   └── NavBar.vue
+│   ├── sections/
+│   │   ├── HeroSection.vue
+│   │   ├── DiscoverSection.vue
+│   │   ├── AboutSection.vue
+│   │   └── ContactSection.vue
+│   └── shared/
+│       └── RegisterCTA.vue
+├── views/
+│   ├── Home.vue
+│   └── Register.vue
+└── router/
+    └── index.js
+  
