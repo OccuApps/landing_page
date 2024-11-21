@@ -1,5 +1,8 @@
 name: page-cd
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
@@ -12,8 +15,10 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Install
-        run: npm install
+      - name: Install dependencies
+        run: |
+          npm ci
+          npm install
 
       - name: Build
         run: npm run build
