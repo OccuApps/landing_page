@@ -29,6 +29,7 @@ jobs:
           NODE_ENV: production
         run: |
           npm install
+          npm install vite
           npm ci
           npm run build
 
