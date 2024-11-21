@@ -4,6 +4,19 @@ import router from './router'
 import './style.css'
 
 const app = createApp(App)
+
+// Error handling
+app.config.errorHandler = (err) => {
+  console.error('Global error:', err)
+}
+
+// Router setup
 app.use(router)
 
-app.mount('#app')
+// Mount application
+const mountPoint = document.getElementById('app')
+if (mountPoint) {
+  app.mount('#app')
+} else {
+  console.error('Failed to find #app element')
+}
