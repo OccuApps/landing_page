@@ -3,7 +3,7 @@ import vue from "@vitejs/plugin-vue";
 import path from "path";
 
 export default defineConfig({
-  base: "/landing_page/",
+  base: process.env.NODE_ENV === "production" ? "/landing_page/" : "/",
   plugins: [vue()],
   resolve: {
     alias: {
