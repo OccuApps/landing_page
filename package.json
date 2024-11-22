@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "vite",
     "build": "npx vite build",
+    "start-codespace": "npx vite",
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
