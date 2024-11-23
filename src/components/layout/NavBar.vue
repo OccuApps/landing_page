@@ -1,33 +1,39 @@
 <template>
-  <nav class="w-full bg-primary shadow-lg fixed top-0 z-50">
-    <div class="max-w-[1440px] mx-auto p-4 sm:px-6 lg:px-8">
+  <nav class="w-full bg-primary/95 backdrop-blur-sm fixed top-0 z-50 transition-all duration-300">
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Desktop Navigation -->
-      <div class="flex justify-between h-20">
+      <div class="flex justify-between h-16 sm:h-20">
+        <!-- Logo -->
         <div class="flex items-center">
           <router-link to="/" class="flex items-center">
-            <img src="/occu-logo.svg" alt="OCCU" class="h-10 w-auto" />
+            <img 
+              src="/occu-logo.svg" 
+              alt="OCCU" 
+              class="h-8 sm:h-10 w-auto"
+            />
           </router-link>
         </div>
 
         <!-- Desktop Menu -->
-        <div class="hidden md:flex items-center gap-8">
+        <div class="hidden md:flex items-center gap-6 lg:gap-8">
           <router-link
             v-for="link in links"
             :key="link.path"
             :to="link.path"
-            class="nav-link text-white hover:text-white/90 transition-colors"
+            class="nav-link text-white hover:text-white/90 transition-colors text-sm lg:text-base"
             @click.prevent="handleNavClick(link.path)"
           >
             {{ link.text }}
           </router-link>
-          <RegisterCTA variant="primary" class="ml-4 px-6" />
+          <RegisterCTA variant="primary" class="ml-2 lg:ml-4 px-4 lg:px-6" />
         </div>
 
         <!-- Mobile Menu Button -->
         <div class="flex items-center md:hidden">
           <button
-            @click="isOpen = !isOpen"
-            class="text-white hover:text-white/90 focus:outline-none"
+            @click="toggleMenu"
+            class="text-white hover:text-white/90 focus:outline-none p-2"
+            aria-label="Toggle menu"
           >
             <svg
               class="h-6 w-6"
@@ -55,18 +61,22 @@
       </div>
 
       <!-- Mobile Menu -->
-      <div v-show="isOpen" class="md:hidden bg-primary">
-        <div class="px-2 pt-2 pb-3 space-y-1">
+      <div 
+        v-show="isOpen" 
+        class="md:hidden bg-primary absolute top-full left-0 w-full transform transition-all duration-300"
+        :class="isOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'"
+      >
+        <div class="px-4 py-3 space-y-2 shadow-lg">
           <router-link
             v-for="link in links"
             :key="link.path"
             :to="link.path"
-            class="block px-3 py-2 text-white hover:text-white/90"
-            @click.prevent="(isOpen = false), handleNavClick(link.path)"
+            class="block py-2 text-white hover:text-white/90 text-sm"
+            @click="handleMobileNavClick(link.path)"
           >
             {{ link.text }}
           </router-link>
-          <div class="px-3 py-2">
+          <div class="pt-2">
             <RegisterCTA variant="primary" class="w-full" />
           </div>
         </div>
@@ -76,13 +86,12 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import RegisterCTA from "../shared/RegisterCTA.vue";
 import { useRouter } from "vue-router";
 
 const isOpen = ref(false);
 const router = useRouter();
-
 
 const links = [
   { path: "/descubre", text: "Descubre" },
@@ -90,25 +99,51 @@ const links = [
   { path: "/contacto", text: "Contáctanos" },
 ];
 
+// Close menu when clicking outside
+const handleClickOutside = (event) => {
+  if (isOpen.value && !event.target.closest('nav')) {
+    isOpen.value = false;
+  }
+};
+
+// Toggle mobile menu
+const toggleMenu = () => {
+  isOpen.value = !isOpen.value;
+  if (isOpen.value) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = '';
+  }
+};
+
 const handleNavClick = async (path) => {
   const targetId = path === '/' ? 'home' : path.substring(1);
   const element = document.getElementById(targetId);
   
   if (element) {
-    // First scroll to the section
-    const top = element.offsetTop - 80;
+    const navHeight = 80; // Adjust based on your navbar height
+    const top = element.offsetTop - navHeight;
     window.scrollTo({
       top,
       behavior: 'smooth'
     });
     
-    // Then update the route without triggering scroll
     await router.push({ path }, { replace: true });
   }
-  
-  // Close mobile menu if open
-  isOpen.value = false;
 };
+
+const handleMobileNavClick = (path) => {
+  handleNavClick(path);
+  toggleMenu();
+};
+
+onMounted(() => {
+  document.addEventListener('click', handleClickOutside);
+});
+
+onUnmounted(() => {
+  document.removeEventListener('click', handleClickOutside);
+});
 </script>
 
 <style scoped>
@@ -122,7 +157,7 @@ const handleNavClick = async (path) => {
   position: absolute;
   width: 0;
   height: 2px;
-  bottom: 0;
+  bottom: -2px;
   left: 0;
   background-color: white;
   transition: width 0.3s ease-in-out;

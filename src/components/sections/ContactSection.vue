@@ -1,82 +1,59 @@
+<!-- components/sections/Contact.vue -->
 <template>
-  <div  class="min-h-screen w-full bg-primary-dark flex items-center snap-start">
-    <div class="max-w-3xl mx-auto px-8 py-20">
-      <h2 class="text-4xl font-bold text-center mb-8">Contáctanos</h2>
-      <p class="text-center mb-8">Contactanos o envíanos tus comentarios.</p>
-      
-      <form @submit.prevent="handleSubmit" class="space-y-6">
-        <div>
-          <label class="block text-sm font-medium">Contact Name*</label>
-          <input 
-            type="text" 
-            v-model="form.name"
-            required
-            class="mt-1 w-full px-4 py-3 border rounded-md focus:ring-primary focus:border-primary"
-          />
-        </div>
-        
-        <div>
-          <label class="block text-sm font-medium">Phone Number</label>
-          <input 
-            type="tel" 
-            v-model="form.phone"
-            class="mt-1 w-full px-4 py-3 border rounded-md focus:ring-primary focus:border-primary"
-          />
-        </div>
-        
-        <div>
-          <label class="block text-sm font-medium">Email Address*</label>
-          <input 
-            type="email" 
-            v-model="form.email"
-            required
-            class="mt-1 w-full px-4 py-3 border rounded-md focus:ring-primary focus:border-primary"
-          />
-        </div>
-        
-        <div>
-          <label class="block text-sm font-medium">Subject</label>
-          <input 
-            type="text" 
-            v-model="form.subject"
-            class="mt-1 w-full px-4 py-3 border rounded-md focus:ring-primary focus:border-primary"
-          />
-        </div>
-        
-        <div>
-          <label class="block text-sm font-medium">Your Message</label>
-          <textarea 
-            v-model="form.message"
-            rows="4"
-            placeholder="Write your thoughts..."
-            class="mt-1 w-full px-4 py-3 border rounded-md focus:ring-primary focus:border-primary"
-          ></textarea>
-        </div>
-        
-        <button 
-          type="submit"
-          class="w-full py-3 px-4 bg-primary text-white rounded-md hover:bg-opacity-90"
-        >
-          Enviar
-        </button>
-      </form>
+  <section id="contact" class="min-h-[100svh] w-full flex items-center py-20 sm:py-16">
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div class="max-w-2xl mx-auto">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-primary-dark text-center mb-8">
+          Contáctanos
+        </h2>
+
+        <form class="space-y-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Nombre*</label>
+              <input 
+                type="text" 
+                required
+                class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:ring-primary"
+              />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Teléfono</label>
+              <input 
+                type="tel" 
+                class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:ring-primary"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Email*</label>
+            <input 
+              type="email" 
+              required
+              class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:ring-primary"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Mensaje*</label>
+            <textarea 
+              rows="4" 
+              required
+              class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:ring-primary"
+              placeholder="Escribe tus comentarios..."
+            ></textarea>
+          </div>
+
+          <button 
+            type="submit"
+            class="w-full sm:w-auto px-8 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark 
+                   transition-colors duration-300"
+          >
+            Enviar mensaje
+          </button>
+        </form>
+      </div>
     </div>
-  </div>
+  </section>
 </template>
-
-<script setup>
-import { reactive } from 'vue'
-
-const form = reactive({
-  name: '',
-  phone: '',
-  email: '',
-  subject: '',
-  message: ''
-})
-
-const handleSubmit = () => {
-  console.log('Form submitted:', form)
-  // Add form submission logic here
-}
-</script>

@@ -1,65 +1,84 @@
 <template>
-  <section id="descubre" class="min-h-screen w-full flex items-center relative">
-    <!-- Background image with overlay -->
+  <section id="descubre" class="min-h-[100svh] w-full relative overflow-hidden flex items-center">
+    <!-- Background with overlay -->
     <div class="absolute inset-0 z-0">
-      <img 
-        src="/occu.svg" 
+      <!-- <img 
+        src="/OCCU-logo-vertical.png" 
         alt="" 
-        class="w-auto h-full object-cover opacity-35 justify-self-end brightness-90"
+        class="w-auto h-full object-cover opacity-35 brightness-90"
         aria-hidden="true"
-      />
-      <div class="absolute inset-0 bg-primary-dark"></div>
+      /> -->
+      <div class="absolute inset-0 bg-primary-dark bg-opacity-90 backdrop-blur-sm"></div>
     </div>
 
     <!-- Content -->
-    <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
-      <div class="flex flex-col lg:flex-row-reverse	 items-center justify-center gap-8 lg:gap-12">
-        <!-- content -->
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 py-20 sm:py-16 min-h-[100svh] flex items-center">
+      <div class="flex flex-col lg:flex-row-reverse items-center gap-8 sm:gap-12 w-full">
+        <!-- Content side -->
         <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start">
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 text-center lg:text-left">
+          <span class="inline-block px-4 py-2 bg-white/10 rounded-full text-white text-sm sm:text-base mb-6">
+            Descubre el poder de OCCU 🚀
+          </span>
+
+          <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 text-center lg:text-left">
             Potencia tu visibilidad sin costos
           </h2>
-          <p class="text-base sm:text-lg lg:text-xl text-white mb-12 text-center lg:text-left">
+
+          <p class="text-base sm:text-lg text-white/90 mb-12 text-center lg:text-left">
             OCCU está diseñada para satisfacer las necesidades tecnológicas y elementos esenciales de tu café.
           </p>
           
-          <!-- Numbered steps -->
-          <div class="space-y-8 w-full">
-            <div class="flex items-start gap-6">
-              <span class="inline-flex items-center justify-center text-4xl font-bold text-primary bg-white rounded-full w-14 h-14 min-w-[3.5rem]">1</span>
+          <!-- Steps -->
+          <div class="space-y-6 w-full">
+            <div class="flex items-start gap-4 group hover:bg-white/10 p-4 rounded-lg transition-all duration-300">
+              <span class="inline-flex items-center justify-center text-2xl sm:text-3xl font-bold text-primary 
+                         bg-white rounded-full w-12 h-12 flex-shrink-0 group-hover:scale-110 transition-transform">1</span>
               <div>
-                <h3 class="text-xl font-bold text-white mb-2">¡Descubre cafeterías independientes!</h3>
-                <p class="text-white/80">Conecta con una audiencia amante del café que busca experiencias locales.</p>
+                <h3 class="text-lg sm:text-xl font-bold text-white mb-2">¡Descubre cafeterías independientes!</h3>
+                <p class="text-white/80 text-sm sm:text-base">Conecta con una audiencia amante del café que busca experiencias locales.</p>
               </div>
             </div>
             
-            <div class="flex items-start gap-4">
-              <span class="inline-flex items-center justify-center text-4xl font-bold text-primary bg-white rounded-full w-14 h-14 min-w-[3.5rem]">2</span>
+            <div class="flex items-start gap-4 group hover:bg-white/10 p-4 rounded-lg transition-all duration-300">
+              <span class="inline-flex items-center justify-center text-2xl sm:text-3xl font-bold text-primary 
+                         bg-white rounded-full w-12 h-12 flex-shrink-0 group-hover:scale-110 transition-transform">2</span>
               <div>
-                <h3 class="text-xl font-bold text-white mb-2">¡Ordena tu café en linea!</h3>
-                <p class="text-white/80">Selecciona la cafetería que desees, explora el menú, personaliza tu pedido y deja que comience la preparación.</p>
+                <h3 class="text-lg sm:text-xl font-bold text-white mb-2">¡Ordena tu café en línea!</h3>
+                <p class="text-white/80 text-sm sm:text-base">Explora menús, personaliza pedidos y disfruta de una experiencia de compra fluida.</p>
               </div>
             </div>
             
-            <div class="flex items-start gap-4">
-              <span class="inline-flex items-center justify-center text-4xl font-bold text-primary bg-white rounded-full w-14 h-14 min-w-[3.5rem]">3</span>
+            <div class="flex items-start gap-4 group hover:bg-white/10 p-4 rounded-lg transition-all duration-300">
+              <span class="inline-flex items-center justify-center text-2xl sm:text-3xl font-bold text-primary 
+                         bg-white rounded-full w-12 h-12 flex-shrink-0 group-hover:scale-110 transition-transform">3</span>
               <div>
-                <h3 class="text-xl font-bold text-white mb-2">¡Prepara tu cafe en casa!</h3>
-                <p class="text-white/80">¡Todas tus necesidades y elementos esenciales de café en un solo lugar!</p>
+                <h3 class="text-lg sm:text-xl font-bold text-white mb-2">¡Prepara tu café en casa!</h3>
+                <p class="text-white/80 text-sm sm:text-base">Accede a todos los elementos esenciales para crear la experiencia perfecta.</p>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Phone image -->
+        <!-- Image side -->
         <div class="w-full lg:w-1/2 flex justify-center">
           <img 
-            src="/phone-orders.png" 
-            alt="OCCU Orders Preview" 
-            class="w-auto h-[400px] sm:h-[500px] lg:h-[600px] xl:h-[700px] object-contain relative z-10"
+            src="/app-mockup.png" 
+            alt="OCCU App Preview" 
+            class="w-full max-w-[300px] sm:max-w-[400px] lg:max-w-none mx-auto h-auto object-contain animate-float"
           />
         </div>
       </div>
+    </div>
+     <!-- Decorative elements -->
+     <div class="absolute inset-0 pointer-events-none">
+    
+      <img 
+        src="/coffee-cup.png" 
+        alt=""
+        class="absolute top-[5%] right-0 w-[150px] sm:w-[200px] lg:w-[400px] 
+               transform  animate-float-delayed hidden lg:block"
+        aria-hidden="true"
+      />
     </div>
   </section>
 </template>
