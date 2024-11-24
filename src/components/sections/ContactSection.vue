@@ -1,6 +1,6 @@
 <!-- components/sections/Contact.vue -->
 <template>
-  <section id="contact" class="min-h-[100svh] w-full flex items-center py-20 sm:py-16">
+  <div class="min-h-[100svh] w-full flex items-center py-20 sm:py-16">
     <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
       <div class="max-w-2xl mx-auto">
         <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-primary-dark text-center mb-8">
@@ -55,5 +55,5 @@
         </form>
       </div>
     </div>
-  </section>
+  </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <section id="about" class="min-h-[100svh] w-full relative flex items-center overflow-hidden">
+  <div class="min-h-[100svh] w-full relative flex items-center overflow-hidden">
     <!-- Background image with overlay -->
     <div class="absolute inset-0">
       <img 
@@ -77,24 +77,9 @@
         </div>
       </div>
     </div>
-  </section>
+  </div>
 </template>
 
 <script setup>
 import RegisterCTA from '../shared/RegisterCTA.vue'
 </script>
-
-<style scoped>
-@keyframes float-rotate {
-  0%, 100% { 
-    transform: translateY(0) rotate(45deg) translateX(15%);
-  }
-  50% { 
-    transform: translateY(-20px) rotate(45deg) translateX(15%);
-  }
-}
-
-.animate-float-rotate {
-  animation: float-rotate 6s ease-in-out infinite;
-}
-</style>

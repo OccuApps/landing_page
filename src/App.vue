@@ -25,4 +25,17 @@ import NavBar from './components/layout/NavBar.vue'
   animation: float 6s ease-in-out infinite;
   animation-delay: 2s;
 }
+
+@keyframes float-rotate {
+  0%, 100% { 
+    transform: translateY(0) rotate(30deg) translateX(15%);
+  }
+  50% { 
+    transform: translateY(-20px) rotate(30deg) translateX(15%);
+  }
+}
+
+.animate-float-rotate {
+  animation: float-rotate 6s ease-in-out infinite;
+}
 </style>

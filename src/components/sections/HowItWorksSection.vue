@@ -1,5 +1,5 @@
 <template>
-    <section id="how-it-works" class="min-h-[100svh] w-full bg-white flex items-center relative ">
+    <div class="min-h-[100svh] w-full bg-white flex items-center relative ">
       <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
         <div class="flex flex-col lg:flex-row-reverse items-center justify-center gap-8 lg:gap-12">
           <!-- Content side -->
@@ -68,21 +68,5 @@
           aria-hidden="true"
         />
       </div>
-    </section>
+    </div>
   </template>
-  
-  <style scoped>
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-  }
-  
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-  
-  .animate-float-delayed {
-    animation: float 6s ease-in-out infinite;
-    animation-delay: 2s;
-  }
-  </style>

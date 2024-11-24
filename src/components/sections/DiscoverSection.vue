@@ -1,5 +1,5 @@
 <template>
-  <section id="descubre" class="min-h-[100svh] w-full relative overflow-hidden flex items-center">
+  <div  class="min-h-[100svh] w-full relative overflow-hidden flex items-center">
     <!-- Background with overlay -->
     <div class="absolute inset-0 z-0">
       <!-- <img 
@@ -80,5 +80,5 @@
         aria-hidden="true"
       />
     </div>
-  </section>
+  </div>
 </template>

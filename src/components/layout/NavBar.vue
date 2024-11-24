@@ -1,5 +1,5 @@
 <template>
-  <nav class="w-full bg-primary/95 backdrop-blur-sm fixed top-0 z-50 transition-all duration-300">
+  <nav id="nav" class="w-full bg-primary/95 backdrop-blur-sm fixed top-0 z-50 transition-all duration-300">
     <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Desktop Navigation -->
       <div class="flex justify-between h-16 sm:h-20">
@@ -117,20 +117,29 @@ const toggleMenu = () => {
 };
 
 const handleNavClick = async (path) => {
-  const targetId = path === '/' ? 'home' : path.substring(1);
-  const element = document.getElementById(targetId);
-  
-  if (element) {
-    const navHeight = 80; // Adjust based on your navbar height
-    const top = element.offsetTop - navHeight;
-    window.scrollTo({
-      top,
-      behavior: 'smooth'
-    });
-    
+  try {
+    // First update the route
     await router.push({ path }, { replace: true });
+    
+    // Then scroll after a small delay to ensure DOM update
+    setTimeout(() => {
+      const targetId = path === '/' ? 'home' : path.substring(1);
+      const element = document.getElementById(targetId);
+      
+      if (element) {
+        const navHeight = document.getElementById('nav')?.clientHeight || 80;
+        const top = element.offsetTop - navHeight;
+        window.scrollTo({
+          top,
+          behavior: 'smooth'
+        });
+      }
+    }, 100);
+  } catch (error) {
+    console.error('Navigation failed:', error);
   }
 };
+
 
 const handleMobileNavClick = (path) => {
   handleNavClick(path);

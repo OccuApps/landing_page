@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import path from 'path'
 import Home from '../views/Home.vue'
 
 // Get base route based on environment
@@ -47,37 +46,23 @@ const router = createRouter({
       return savedPosition;
     }
 
+    if (to.hash) {
+      return {
+        el: to.hash,
+        behavior: 'smooth',
+        top: 80
+      }
+    }
+
+
     if (to.path === from.path) {
       return false;
     }
-
-    return { 
-      top: 0,
-      behavior: 'smooth'
-    }
+    return { top: 0, behavior: 'smooth' }
   }
 });
 
-// Navigation guard for section scrolling
-router.beforeEach((to, from, next) => {
-  if (to.path !== '/' && to.path !== from.path) {
-    to.meta.scrollToSection = to.path.substring(1);
-  }
-  next();
-});
 
-router.afterEach((to) => {
-  if (to.meta.scrollToSection) {
-    const element = document.getElementById(to.meta.scrollToSection);
-    if (element) {
-      const navHeight = 80;
-      window.scrollTo({
-        top: element.offsetTop - navHeight,
-        behavior: 'smooth'
-      });
-    }
-  }
-});
 
 
 

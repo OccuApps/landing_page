@@ -1,5 +1,5 @@
 <template>
-  <section id="home" class="min-h-[100svh] w-full bg-primary flex items-center py-20 sm:py-16 relative overflow-x-hidden">
+  <div class="min-h-[100svh] w-full bg-primary flex items-center py-20 sm:py-16 relative overflow-x-hidden">
     <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
       <div class="flex flex-col lg:flex-row items-center gap-8 sm:gap-12">
         <!-- Content -->
@@ -74,7 +74,7 @@
         aria-hidden="true"
       /> -->
     </div>
-  </section>
+  </div>
 </template>
 
 <script setup>
