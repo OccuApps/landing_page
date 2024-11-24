@@ -25,7 +25,9 @@ const handleScroll = () => {
   // Add debounce to prevent too many route updates
   if (scrollTimeout) clearTimeout(scrollTimeout);
   scrollTimeout = setTimeout(() => {
-    
+    // Don't update routes on mobile while scrolling
+    if (window.innerWidth < 768) return;
+
     const sections = document.querySelectorAll('section');
     const navHeight = document.getElementById('nav')?.clientHeight || 80;
     
@@ -44,7 +46,7 @@ const handleScroll = () => {
         router.push({ path }, { replace: true }).catch(() => {});
       }
     }
-  }, 100);
+  }, 200);
 };
 
 const scrollToSection = (sectionId) => {

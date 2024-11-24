@@ -5,13 +5,13 @@
       <div class="flex justify-between h-16 sm:h-20">
         <!-- Logo -->
         <div class="flex items-center">
-          <router-link to="/" class="flex items-center">
-            <img 
-              src="/occu-logo.svg" 
-              alt="OCCU" 
-              class="h-8 sm:h-10 w-auto"
-            />
-          </router-link>
+          <router-link to="/" class="flex items-center" @click.prevent="handleNavClick('/')">
+  <img 
+    src="/occu-logo.svg" 
+    alt="OCCU" 
+    class="h-8 sm:h-10 w-auto"
+  />
+</router-link>
         </div>
 
         <!-- Desktop Menu -->
@@ -86,7 +86,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted, nextTick } from "vue";
 import RegisterCTA from "../shared/RegisterCTA.vue";
 import { useRouter } from "vue-router";
 
@@ -116,34 +116,72 @@ const toggleMenu = () => {
   }
 };
 
+// const handleNavClick = async (path) => {
+
+//   try {
+//     // First update the route
+//     await router.push({ path }, { replace: true });
+    
+//     // Then scroll after a small delay to ensure DOM update
+//     setTimeout(() => {
+//       const targetId = path === '/' ? 'home' : path.substring(1);
+//       const element = document.getElementById(targetId);
+      
+//       if (element) {
+//         const navHeight = document.getElementById('nav')?.clientHeight || 80;
+//         const top = element.offsetTop - navHeight;
+//         window.scrollTo({
+//           top,
+//           behavior: 'smooth'
+//         });
+//       }
+//     }, 100);
+//   } catch (error) {
+//     console.error('Navigation failed:', error);
+//   }
+// };
+
 const handleNavClick = async (path) => {
-  try {
-    // First update the route
+  // Close mobile menu first if open
+  if (isOpen.value) {
+    isOpen.value = false;
+    document.body.style.overflow = '';
+  }
+  
+  // Wait for DOM updates
+  await nextTick();
+  
+  const targetId = path === '/' ? 'home' : path.substring(1);
+  const element = document.getElementById(targetId);
+  
+  if (element) {
+    const navHeight = document.getElementById('nav')?.clientHeight || 80;
+    const top = element.offsetTop - navHeight;
+    
+    // Update route first
     await router.push({ path }, { replace: true });
     
-    // Then scroll after a small delay to ensure DOM update
+    // Then scroll after a short delay
     setTimeout(() => {
-      const targetId = path === '/' ? 'home' : path.substring(1);
-      const element = document.getElementById(targetId);
-      
-      if (element) {
-        const navHeight = document.getElementById('nav')?.clientHeight || 80;
-        const top = element.offsetTop - navHeight;
-        window.scrollTo({
-          top,
-          behavior: 'smooth'
-        });
-      }
-    }, 100);
-  } catch (error) {
-    console.error('Navigation failed:', error);
+      window.scrollTo({
+        top,
+        behavior: 'smooth'
+      });
+    }, 50);
   }
 };
 
 
-const handleMobileNavClick = (path) => {
-  handleNavClick(path);
-  toggleMenu();
+const handleMobileNavClick = async (path) => {
+  // Close mobile menu first
+  isOpen.value = false;
+  document.body.style.overflow = '';
+  
+  // Wait for DOM updates
+  await nextTick();
+  
+  // Then handle navigation
+  await handleNavClick(path);
 };
 
 onMounted(() => {
