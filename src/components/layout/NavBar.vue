@@ -6,23 +6,15 @@
         <!-- Logo -->
         <div class="flex items-center">
           <router-link to="/" class="flex items-center" @click.prevent="handleNavClick('/')">
-  <img 
-    src="/occu-logo.svg" 
-    alt="OCCU" 
-    class="h-8 sm:h-10 w-auto"
-  />
-</router-link>
+            <img src="/occu-logo.svg" alt="OCCU" class="h-8 sm:h-10 w-auto" />
+          </router-link>
         </div>
 
         <!-- Desktop Menu -->
         <div class="hidden md:flex items-center gap-6 lg:gap-8">
-          <router-link
-            v-for="link in links"
-            :key="link.path"
-            :to="link.path"
+          <router-link v-for="link in links" :key="link.path" :to="link.path"
             class="nav-link text-white hover:text-white/90 transition-colors text-sm lg:text-base"
-            @click.prevent="handleNavClick(link.path)"
-          >
+            @click.prevent="handleNavClick(link.path)">
             {{ link.text }}
           </router-link>
           <RegisterCTA variant="primary" class="ml-2 lg:ml-4 px-4 lg:px-6" />
@@ -30,50 +22,24 @@
 
         <!-- Mobile Menu Button -->
         <div class="flex items-center md:hidden">
-          <button
-            @click="toggleMenu"
-            class="text-white hover:text-white/90 focus:outline-none p-2"
-            aria-label="Toggle menu"
-          >
-            <svg
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                v-if="!isOpen"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-              <path
-                v-else
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M6 18L18 6M6 6l12 12"
-              />
+          <button @click="toggleMenu" class="text-white hover:text-white/90 focus:outline-none p-2"
+            aria-label="Toggle menu">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path v-if="!isOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16" />
+              <path v-else stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
         </div>
       </div>
 
       <!-- Mobile Menu -->
-      <div 
-        v-show="isOpen" 
+      <div v-show="isOpen"
         class="md:hidden bg-primary absolute top-full left-0 w-full transform transition-all duration-300"
-        :class="isOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'"
-      >
+        :class="isOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'">
         <div class="px-4 py-3 space-y-2 shadow-lg">
-          <router-link
-            v-for="link in links"
-            :key="link.path"
-            :to="link.path"
-            class="block py-2 text-white hover:text-white/90 text-sm"
-            @click="handleMobileNavClick(link.path)"
-          >
+          <router-link v-for="link in links" :key="link.path" :to="link.path"
+            class="block py-2 text-white hover:text-white/90 text-sm" @click="handleMobileNavClick(link.path)">
             {{ link.text }}
           </router-link>
           <div class="pt-2">
@@ -116,51 +82,26 @@ const toggleMenu = () => {
   }
 };
 
-// const handleNavClick = async (path) => {
-
-//   try {
-//     // First update the route
-//     await router.push({ path }, { replace: true });
-    
-//     // Then scroll after a small delay to ensure DOM update
-//     setTimeout(() => {
-//       const targetId = path === '/' ? 'home' : path.substring(1);
-//       const element = document.getElementById(targetId);
-      
-//       if (element) {
-//         const navHeight = document.getElementById('nav')?.clientHeight || 80;
-//         const top = element.offsetTop - navHeight;
-//         window.scrollTo({
-//           top,
-//           behavior: 'smooth'
-//         });
-//       }
-//     }, 100);
-//   } catch (error) {
-//     console.error('Navigation failed:', error);
-//   }
-// };
-
 const handleNavClick = async (path) => {
   // Close mobile menu first if open
   if (isOpen.value) {
     isOpen.value = false;
     document.body.style.overflow = '';
   }
-  
+
   // Wait for DOM updates
   await nextTick();
-  
+
   const targetId = path === '/' ? 'home' : path.substring(1);
   const element = document.getElementById(targetId);
-  
+
   if (element) {
     const navHeight = document.getElementById('nav')?.clientHeight || 80;
     const top = element.offsetTop - navHeight;
-    
+
     // Update route first
     await router.push({ path }, { replace: true });
-    
+
     // Then scroll after a short delay
     setTimeout(() => {
       window.scrollTo({
@@ -176,10 +117,10 @@ const handleMobileNavClick = async (path) => {
   // Close mobile menu first
   isOpen.value = false;
   document.body.style.overflow = '';
-  
+
   // Wait for DOM updates
   await nextTick();
-  
+
   // Then handle navigation
   await handleNavClick(path);
 };

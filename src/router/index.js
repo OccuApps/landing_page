@@ -6,8 +6,6 @@ const baseRoute = import.meta.env.MODE === 'production'
   ? import.meta.env.VITE_APP_PROD_BASE_ROUTE 
   : import.meta.env.VITE_APP_BASE_ROUTE || '/'
 
-
-
 // Define routes
 const routes = [
   {
@@ -54,9 +52,5 @@ const router = createRouter({
     return false;
   }
 });
-
-
-
-
 
 export default router;

@@ -13,8 +13,15 @@ import NavBar from './components/layout/NavBar.vue'
 
 <style>
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
 }
 
 .animate-float {
@@ -27,10 +34,13 @@ import NavBar from './components/layout/NavBar.vue'
 }
 
 @keyframes float-rotate {
-  0%, 100% { 
+
+  0%,
+  100% {
     transform: translateY(0) rotate(30deg) translateX(15%);
   }
-  50% { 
+
+  50% {
     transform: translateY(-20px) rotate(30deg) translateX(15%);
   }
 }

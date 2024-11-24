@@ -1,10 +1,20 @@
 <template>
   <main class="w-full">
-    <section id="home"><Hero /></section>
-    <section id="descubre"><Discover /></section>
-    <section id="sobre-nosotros"><About /></section>
-    <section id="how-it-works"><HowItWorksSection/></section>
-    <section id="contacto"><Contact /></section>
+    <section id="home">
+      <Hero class="py-20 sm:py-16" />
+    </section>
+    <section id="descubre">
+      <Discover class="py-20 sm:py-16" />
+    </section>
+    <section id="sobre-nosotros">
+      <About class="py-20 sm:py-16" />
+    </section>
+    <section id="how-it-works">
+      <HowItWorksSection class="py-20 sm:py-16" />
+    </section>
+    <section id="contacto">
+      <Contact class="py-20 sm:py-16" />
+    </section>
   </main>
 </template>
 
@@ -30,7 +40,7 @@ const handleScroll = () => {
 
     const sections = document.querySelectorAll('section');
     const navHeight = document.getElementById('nav')?.clientHeight || 80;
-    
+
     let currentSection = null;
     sections.forEach(section => {
       const rect = section.getBoundingClientRect();
@@ -39,11 +49,11 @@ const handleScroll = () => {
         currentSection = section;
       }
     });
-    
+
     if (currentSection) {
       const path = currentSection.id === 'home' ? '/' : `/${currentSection.id}`;
       if (route.path !== path) {
-        router.push({ path }, { replace: true }).catch(() => {});
+        router.push({ path }, { replace: true }).catch(() => { });
       }
     }
   }, 200);
@@ -78,7 +88,8 @@ onUnmounted(() => {
 
 <style scoped>
 section {
-  scroll-margin-top: 80px;
+  scroll-margin-top: calc(80px + 5rem);
+  /* navbar height + padding-top */
   min-height: 100svh;
   scroll-behavior: smooth;
 }
