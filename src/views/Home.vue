@@ -21,18 +21,19 @@ const router = useRouter();
 const route = useRoute();
 let scrollTimeout;
 
-
 const handleScroll = () => {
   // Add debounce to prevent too many route updates
   if (scrollTimeout) clearTimeout(scrollTimeout);
   scrollTimeout = setTimeout(() => {
+    
     const sections = document.querySelectorAll('section');
     const navHeight = document.getElementById('nav')?.clientHeight || 80;
     
     let currentSection = null;
     sections.forEach(section => {
       const rect = section.getBoundingClientRect();
-      if (rect.top <= navHeight && rect.bottom > navHeight) {
+      // Only update if section is significantly in view
+      if (rect.top <= navHeight && rect.bottom > navHeight + 100) {
         currentSection = section;
       }
     });
@@ -40,7 +41,7 @@ const handleScroll = () => {
     if (currentSection) {
       const path = currentSection.id === 'home' ? '/' : `/${currentSection.id}`;
       if (route.path !== path) {
-        router.push({ path }, { replace: true });
+        router.push({ path }, { replace: true }).catch(() => {});
       }
     }
   }, 100);
