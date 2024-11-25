@@ -13,11 +13,13 @@
         <!-- Desktop Menu -->
         <div class="hidden md:flex items-center gap-6 lg:gap-8">
           <router-link v-for="link in links" :key="link.path" :to="link.path"
-            class="nav-link text-white hover:text-white/90 transition-colors text-sm lg:text-base"
+            class="nav-link text-white hover:text-white/90 transition-colors text-lg lg:text-xl"
             @click.prevent="handleNavClick(link.path)">
             {{ link.text }}
           </router-link>
-          <RegisterCTA variant="primary" class="ml-2 lg:ml-4 px-4 lg:px-6" />
+          <RegisterCTA class="ml-2 lg:ml-4 text-xl">
+            Regístrate aquí
+          </RegisterCTA>
         </div>
 
         <!-- Mobile Menu Button -->
@@ -39,11 +41,13 @@
         :class="isOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'">
         <div class="px-4 py-3 space-y-2 shadow-lg">
           <router-link v-for="link in links" :key="link.path" :to="link.path"
-            class="block py-2 text-white hover:text-white/90 text-sm" @click="handleMobileNavClick(link.path)">
+            class="block py-2 text-white hover:text-white/90 text-lg" @click="handleMobileNavClick(link.path)">
             {{ link.text }}
           </router-link>
           <div class="pt-2">
-            <RegisterCTA variant="primary" class="w-full" />
+            <RegisterCTA class="ml-2 lg:ml-4 w-full text-xl">
+              Regístrate aquí
+            </RegisterCTA>
           </div>
         </div>
       </div>

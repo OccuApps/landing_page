@@ -9,6 +9,8 @@ export default {
           dark: "rgba(129, 107, 85, 0.4)",
         },
         secondary: "#b3b1ae",
+        'dark-brown': '#54280C',
+        'accent': '#FFC300'
         
       },
       fontFamily: {
