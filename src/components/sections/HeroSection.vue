@@ -1,9 +1,12 @@
 <template>
   <div class="min-h-[100svh] w-full bg-primary flex flex-col">
     <!-- Banner -->
-<div class="w-full bg-dark-brown py-3 lg:px-8 text-center lg:mt-[40px] text-center lg:text-start">
-  <span class="text-white text-lg lg:text-xl">🚀 ¡Únete gratis durante el lanzamiento!</span>
-</div>
+    <div class="w-full bg-dark-brown py-3 lg:px-8 mb-12 lg:mb-0 text-center lg:mt-[40px] text-center lg:text-start">
+      <div class="max-w-[1440px] mx-auto">
+        <span class="text-white text-lg lg:text-xl">🚀 ¡Únete gratis durante el lanzamiento!</span>
+
+      </div>
+    </div>
 
     <!-- Main content -->
     <div class="flex-1 flex items-center">
@@ -17,32 +20,32 @@
               <span class="text-dark-brown"> nuevos clientes</span>
             </h1>
 
-            <p class="text-xl sm:text-2xl text-white text-center lg:text-left max-w-xl my-2 lg:my-3">
+            <p class="text-xl sm:text-2xl text-slate-100 text-center lg:text-left max-w-xl my-2 lg:my-3 ">
               Únete a nuestro marketplace exclusivo para cafeterías independientes y forma parte
               de una comunidad apasionada por el café
             </p>
             <!-- Feature pills -->
-            <div class="flex flex-col sm:flex-row gap-4 w-full">
+            <div class="flex flex-col sm:flex-row gap-4 w-full py-4 lg:pt-0">
               <div class="w-full sm:w-auto px-6 py-3 border-2 border-white rounded-lg 
-              flex items-center justify-center gap-2">
+              flex items-center justify-center gap-2 text-white">
                 <span class="text-xl">✨</span>
-                <span class="text-xl font-medium text-white">Sin costos</span>
+                <span class="text-xl font-medium">Sin costos</span>
               </div>
               <div class="w-full sm:w-auto px-6 py-3 border-2 border-white rounded-lg 
-              flex items-center justify-center gap-2">
+              flex items-center justify-center gap-2 text-white">
                 <span class="text-xl">👁️</span>
-                <span class="text-xl font-medium text-white">Mayor visibilidad</span>
+                <span class="text-xl font-medium">Mayor visibilidad</span>
               </div>
               <div class="w-full sm:w-auto px-6 py-3 border-2 border-white rounded-lg 
-              flex items-center justify-center gap-2">
+              flex items-center justify-center gap-2 text-white">
                 <span class="text-xl">💰</span>
-                <span class="text-xl font-medium text-white">Más ventas</span>
+                <span class="text-xl font-medium">Más ventas</span>
               </div>
             </div>
 
             <!-- CTA Button -->
             <div class="group hover:scale-105 transition-transform duration-300 w-full sm:w-auto">
-              <RegisterCTA class="text-2xl">
+              <RegisterCTA class="text-2xl w-full">
                 Regístrate aquí para el lanzamiento gratuito
               </RegisterCTA>
             </div>
@@ -50,7 +53,7 @@
 
           <!-- Right content -->
           <div class="relative flex justify-center z-10">
-            <div class="relative w-full sm:max-w-[400px] lg:max-w-none mx-auto">
+            <div class="relative w-full max-lg:max-w-[500px] lg:max-w-none mx-auto">
               <img src="/marketplace-mockup.png" alt="OCCU App Preview"
                 class="w-full h-auto lg:h-[45vh]  object-cover animate-float" loading="eager" />
 
@@ -88,7 +91,7 @@
     <div class="absolute inset-0 pointer-events-none">
       <!-- <img src="/coffee-beans.png" alt="" class="absolute bottom-0 left-0 w-[550px] sm:w-[600px] lg:w-[850px] 
                transform -translate-x-1/4 rotate-45 animate-float opacity-60" aria-hidden="true" loading="lazy" /> -->
-      <img src="/coffee-cup.png" alt="" class="absolute bottom-0 right-[20%] w-[150px] sm:w-[400px] lg:w-[600px] 
+      <img src="/coffee-cup.png" alt="" class="absolute bottom-0 right-[15%] w-[150px] sm:w-[400px] lg:w-[600px] 
                transform animate-float-delayed hidden xl:block" aria-hidden="true" loading="lazy" />
     </div>
   </div>
