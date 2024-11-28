@@ -79,11 +79,7 @@ const handleClickOutside = (event) => {
 // Toggle mobile menu
 const toggleMenu = () => {
   isOpen.value = !isOpen.value;
-  if (isOpen.value) {
-    document.body.style.overflow = 'hidden';
-  } else {
-    document.body.style.overflow = '';
-  }
+  document.body.style.overflow = isOpen.value ? 'hidden' : '';
 };
 
 const handleNavClick = async (path) => {
@@ -92,7 +88,6 @@ const handleNavClick = async (path) => {
     isOpen.value = false;
     document.body.style.overflow = '';
   }
-
   // Wait for DOM updates
   await nextTick();
 
@@ -116,16 +111,13 @@ const handleNavClick = async (path) => {
   }
 };
 
-
 const handleMobileNavClick = async (path) => {
   // Close mobile menu first
   isOpen.value = false;
   document.body.style.overflow = '';
 
-  // Wait for DOM updates
   await nextTick();
 
-  // Then handle navigation
   await handleNavClick(path);
 };
 
@@ -137,6 +129,7 @@ onUnmounted(() => {
   document.removeEventListener('click', handleClickOutside);
 });
 </script>
+
 
 <style scoped>
 .nav-link {

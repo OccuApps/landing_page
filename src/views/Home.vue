@@ -1,6 +1,12 @@
 <template>
-  <main class="w-full">
+  <div class="w-full mt-[60px] md:mt-[80px]">
     <section id="home">
+      <!-- Banner -->
+      <div class="w-full bg-dark-brown py-3 lg:px-8 text-center lg:text-start">
+        <div class="max-w-[1440px] mx-auto">
+          <span class="text-white text-lg lg:text-xl">🚀 ¡Únete gratis durante el lanzamiento!</span>
+        </div>
+      </div>
       <Hero class="py-20 sm:py-16" />
     </section>
     <section id="descubre">
@@ -15,7 +21,7 @@
     <section id="contacto">
       <Contact class="py-20 sm:py-16" />
     </section>
-  </main>
+  </div>
 </template>
 
 <script setup>
