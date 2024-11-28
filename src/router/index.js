@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
+import Register from '../views/Register.vue';
 
 // Get base route based on environment
 const baseRoute = import.meta.env.MODE === 'production' 
@@ -24,9 +25,14 @@ const routes = [
     component: Home
   },
   {
-    path: '/contacto',
-    name: 'Contact',
+    path: '/proceso',
+    name: 'Works',
     component: Home
+  },
+  {
+    path: '/registro',
+    name: 'Register',
+    component: Register
   },
   // Add a catch-all route for 404
   {

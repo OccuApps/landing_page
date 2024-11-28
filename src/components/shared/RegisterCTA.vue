@@ -1,5 +1,5 @@
 <template>
-  <router-link to="/" :class="[
+  <router-link :to="path" :class="[
     'inline-flex items-center justify-center px-8 py-2 lg:py-4 rounded-2xl font-extrabold text-center transition-all',
     variant === 'primary'
       ? 'bg-accent text-black hover:bg-accent/90'
@@ -15,6 +15,10 @@ defineProps({
     type: String,
     default: 'primary',
     validator: (value) => ['primary', 'secondary'].includes(value)
-  }
+  },
+  path: {
+    type: String,
+    default: '/',
+  },
 })
 </script>

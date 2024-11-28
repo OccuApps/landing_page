@@ -39,7 +39,7 @@
 
             <!-- CTA Button -->
             <div class="group hover:scale-105 transition-transform duration-300 w-full sm:w-auto">
-              <RegisterCTA class="text-xl sm:text-2xl w-full sm:w-auto">
+              <RegisterCTA class="text-xl sm:text-2xl w-full sm:w-auto" path="registro">
                 Regístrate aquí para el lanzamiento gratuito
               </RegisterCTA>
             </div>
@@ -55,9 +55,9 @@
               <div class="hidden md:block absolute w-full h-full top-[10%] left-[10%]">
                 <!-- Top annotation -->
                 <div
-                  class="absolute md:max-xl:-left-[15%] lg:-left-[5%] md:top-0 lg:top-[20%] flex flex-col justify-center items-center gap-2">
+                  class="absolute left-[-10%] xl:-left-[5%] md:top-0 lg:top-[20%] flex flex-col justify-center items-center gap-2">
 
-                  <div class="text-dark-brown  md:max-xl:text-lg lg:text-xl font-bold pb-2">
+                  <div class="text-dark-brown text-lg xl:text-xl font-bold pb-2">
                     <span>+500 cafeterías</span>
                   </div>
                   <svg class="w-auto h-[36px] text-accent transform rotate-[30deg]" viewBox="0 0 48 24">
@@ -67,8 +67,8 @@
 
                 <!-- Bottom annotation -->
                 <div
-                  class="absolute md:max-xl:right-[10%] lg:right-[15%] bottom-[40%] flex flex-col justify-center items-center gap-2">
-                  <div class="text-dark-brown md:max-xl:text-lg lg:text-xl font-bold flex flex-col items-end pb-2">
+                  class="absolute right-[10%] xl:right-[20%] bottom-[40%] flex flex-col justify-center items-center gap-2">
+                  <div class="text-dark-brown text-lg xl:text-xl font-bold flex flex-col items-end pb-2">
                     <span>❤️ Comunidad</span>
                     <span>activa</span>
                   </div>

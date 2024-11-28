@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full mt-[60px] md:mt-[80px]">
+  <div class="w-full mt-[60px] sm:mt-[80px]">
     <section id="home">
       <!-- Banner -->
       <div class="w-full bg-dark-brown py-3 lg:px-8 text-center lg:text-start">
@@ -15,11 +15,8 @@
     <section id="sobre-nosotros">
       <About class="py-20 sm:py-16" />
     </section>
-    <section id="how-it-works">
+    <section id="proceso">
       <HowItWorksSection class="py-20 sm:py-16" />
-    </section>
-    <section id="contacto">
-      <Contact class="py-20 sm:py-16" />
     </section>
   </div>
 </template>

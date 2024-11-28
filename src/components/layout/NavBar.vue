@@ -17,7 +17,7 @@
             @click.prevent="handleNavClick(link.path)">
             {{ link.text }}
           </router-link>
-          <RegisterCTA class="ml-2 lg:ml-4 text-xl">
+          <RegisterCTA class="ml-2 lg:ml-4 text-xl" path="/registro">
             Regístrate aquí
           </RegisterCTA>
         </div>
@@ -45,7 +45,7 @@
             {{ link.text }}
           </router-link>
           <div class="pt-2">
-            <RegisterCTA class="ml-2 lg:ml-4 w-full text-xl">
+            <RegisterCTA class="ml-2 lg:ml-4 w-full text-xl" path="/registro">
               Regístrate aquí
             </RegisterCTA>
           </div>
@@ -66,7 +66,7 @@ const router = useRouter();
 const links = [
   { path: "/descubre", text: "Descubre" },
   { path: "/sobre-nosotros", text: "Sobre nosotros" },
-  { path: "/contacto", text: "Contáctanos" },
+  { path: "/proceso", text: "Cómo funciona" },
 ];
 
 // Close menu when clicking outside
