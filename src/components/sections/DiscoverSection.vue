@@ -83,7 +83,7 @@
     </div>
 
     <!-- Decorative elements -->
-    <div class="absolute inset-x-[5%] bottom-[-25%] pointer-events-none z-[1] hidden xl:block">
+    <div class="absolute inset-x-[5%] bottom-[-9%] pointer-events-none z-[1] hidden xl:block">
       <!-- Coffee beans decorative element -->
       <img src="/coffee-beans.png" alt=""
         class="w-[300px] sm:w-[550px] lg:w-[800px] transform -translate-x-[20%] rotate-[45deg]" aria-hidden="true"

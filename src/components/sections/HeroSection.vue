@@ -82,12 +82,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Decorative elements -->
-    <div class="absolute right-[5%] bottom-[5%] pointer-events-none hidden xl:block">
-      <img src="/coffee-cup.png" alt="" class="w-[15vw] max-w-[200px] transform animate-float-delayed"
-        aria-hidden="true" loading="lazy" />
-    </div>
   </div>
 </template>
 

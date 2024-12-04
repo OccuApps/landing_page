@@ -1,5 +1,5 @@
 <template>
-    <div class="min-h-[100svh] w-full bg-white flex items-center relative overflow-hidden">
+    <div class="min-h-[100svh] w-full bg-white flex items-center relative">
         <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
             <div class="flex flex-col lg:flex-row-reverse items-center justify-center gap-8 lg:gap-12">
                 <!-- Content side -->
@@ -79,9 +79,9 @@
         </div>
 
         <!-- Decorative element -->
-        <div class="absolute inset-0 pointer-events-none z-10 hidden xl:block">
+        <div class="absolute inset-0 pointer-events-none z-30 hidden xl:block">
             <img src="/coffee-to-go.png" alt=""
-                class="absolute -top-[10%] left-[0%] w-[150px] sm:w-[200px] lg:w-[500px] object-contain transform animate-float-delayed hidden lg:block z-10"
+                class="absolute -top-[10%] left-[0%] w-[150px] sm:w-[200px] lg:w-[500px] object-contain transform animate-float-delayed hidden lg:block"
                 aria-hidden="true" loading="lazy" />
         </div>
     </div>

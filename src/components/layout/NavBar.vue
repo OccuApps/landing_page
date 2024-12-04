@@ -1,5 +1,5 @@
 <template>
-  <nav id="nav" class="w-full bg-primary/95 backdrop-blur-sm fixed top-0 z-50 transition-all duration-300">
+  <nav id="nav" class="w-full bg-primary backdrop-blur-sm fixed top-0 z-50 transition-all duration-300">
     <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Desktop Navigation -->
       <div class="flex justify-between h-16 sm:h-20">
@@ -17,7 +17,7 @@
             @click.prevent="handleNavClick(link.path)">
             {{ link.text }}
           </router-link>
-          <RegisterCTA class="ml-2 lg:ml-4 text-xl" path="/registro">
+          <RegisterCTA class="ml-2 lg:ml-4 text-xl" path="/registro" @click="handleCTA">
             Regístrate aquí
           </RegisterCTA>
         </div>
@@ -38,14 +38,14 @@
       <!-- Mobile Menu -->
       <div v-show="isOpen"
         class="md:hidden bg-primary absolute top-full left-0 w-full transform transition-all duration-300"
-        :class="isOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'">
+        :class="{ 'translate-y-0 opacity-100': isOpen, '-translate-y-full opacity-0': !isOpen }">
         <div class="px-4 py-3 space-y-2 shadow-lg">
           <router-link v-for="link in links" :key="link.path" :to="link.path"
-            class="block py-2 text-white hover:text-white/90 text-lg" @click="handleMobileNavClick(link.path)">
+            class="block py-2 text-white hover:text-white/90 text-lg" @click.prevent="handleMobileNavClick(link.path)">
             {{ link.text }}
           </router-link>
           <div class="pt-2">
-            <RegisterCTA class="ml-2 lg:ml-4 w-full text-xl" path="/registro">
+            <RegisterCTA class="ml-2 lg:ml-4 w-full text-xl" path="/registro" @click="handleCTA">
               Regístrate aquí
             </RegisterCTA>
           </div>
@@ -83,12 +83,11 @@ const toggleMenu = () => {
 };
 
 const handleNavClick = async (path) => {
-  // Close mobile menu first if open
   if (isOpen.value) {
     isOpen.value = false;
     document.body.style.overflow = '';
   }
-  // Wait for DOM updates
+  
   await nextTick();
 
   const targetId = path === '/' ? 'home' : path.substring(1);
@@ -98,10 +97,8 @@ const handleNavClick = async (path) => {
     const navHeight = document.getElementById('nav')?.clientHeight || 80;
     const top = element.offsetTop - navHeight;
 
-    // Update route first
     await router.push({ path }, { replace: true });
 
-    // Then scroll after a short delay
     setTimeout(() => {
       window.scrollTo({
         top,
@@ -112,13 +109,17 @@ const handleNavClick = async (path) => {
 };
 
 const handleMobileNavClick = async (path) => {
-  // Close mobile menu first
   isOpen.value = false;
   document.body.style.overflow = '';
 
   await nextTick();
 
   await handleNavClick(path);
+};
+
+const handleCTA = () => {
+  isOpen.value = false;
+  document.body.style.overflow = '';
 };
 
 onMounted(() => {
@@ -129,7 +130,6 @@ onUnmounted(() => {
   document.removeEventListener('click', handleClickOutside);
 });
 </script>
-
 
 <style scoped>
 .nav-link {
