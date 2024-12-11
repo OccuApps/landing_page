@@ -52,22 +52,32 @@
                 loading="eager" />
 
               <!-- Annotations positioned relative to phone -->
-              <div class="hidden md:block absolute w-full h-full top-[10%] left-[10%]">
-                <!-- Top annotation -->
+              <div class="hidden lg:block absolute w-full h-full top-[10%] left-[10%]">
+                <!-- Top left annotation -->
                 <div
-                  class="absolute left-[-10%] xl:-left-[5%] md:top-0 lg:top-[20%] flex flex-col justify-center items-center gap-2">
-
-                  <div class="text-dark-brown text-lg xl:text-xl font-bold pb-2">
-                    <span>+500 cafeterías</span>
+                  class="absolute left-[-10%] xl:-left-[5%] md:top-0 lg:top-[10%] flex flex-col justify-center items-center gap-2">
+                  <div class="text-dark-brown text-lg xl:text-xl font-bold pb-2 flex flex-col items-end">
+                    <span>☕️ Descubre</span><span> cafeterías </span> <span>independientes</span>
                   </div>
                   <svg class="w-auto h-[36px] text-accent transform rotate-[30deg]" viewBox="0 0 48 24">
                     <path d="M 2 2 C 10 14 21 25 46 22" stroke="currentColor" fill="none" stroke-width="2" />
                   </svg>
                 </div>
 
+                <!-- Top right annotation -->
+                <div
+                  class="absolute right-[10%] xl:right-[15%] md:-top-[20%] flex flex-col justify-center items-center gap-2">
+                  <div class="text-dark-brown text-lg xl:text-xl font-bold pb-2 flex flex-col items-end">
+                    <span>🤖 La digitalización</span> <span>de tu café </span><span>en un solo click</span>
+                  </div>
+                  <svg class="w-auto h-[36px] text-accent transform -rotate-[70deg]" viewBox="0 0 48 24">
+                    <path d="M 2 2 C 10 14 21 25 46 22" stroke="currentColor" fill="none" stroke-width="2" />
+                  </svg>
+                </div>
+
                 <!-- Bottom annotation -->
                 <div
-                  class="absolute right-[10%] xl:right-[20%] bottom-[40%] flex flex-col justify-center items-center gap-2">
+                  class="absolute right-[10%] xl:right-[15%] bottom-[25%] flex flex-col justify-center items-center gap-2">
                   <div class="text-dark-brown text-lg xl:text-xl font-bold flex flex-col items-end pb-2">
                     <span>❤️ Comunidad</span>
                     <span>activa</span>

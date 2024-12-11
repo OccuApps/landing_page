@@ -54,7 +54,7 @@
                   ¡Prepara tu café en casa!
                 </h3>
                 <p class="text-gray-600 text-base">
-                  Accede a todos los elementos esenciales para crear la experiencia perfecta.
+                  Accede a todo lo necesario para preparar tu café en casa.
                 </p>
               </div>
             </div>

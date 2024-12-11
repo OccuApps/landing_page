@@ -4,7 +4,8 @@
       <!-- Banner -->
       <div class="w-full bg-dark-brown py-3 lg:px-8 text-center lg:text-start">
         <div class="max-w-[1440px] mx-auto">
-          <span class="text-white text-lg lg:text-xl">🚀 ¡Únete gratis durante el lanzamiento!</span>
+          <span class="text-white text-lg lg:text-xl">🚀 ¡La Startup que evolucinará la industria de las cafeterías
+            independientes!</span>
         </div>
       </div>
       <Hero class="py-20 sm:py-16" />

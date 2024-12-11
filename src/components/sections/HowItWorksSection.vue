@@ -8,6 +8,8 @@
                         class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-dark-brown mb-6 text-center lg:text-left max-w-[540px] sm:max-w-none leading-tight">
                         Comienza a vender <span class="text-primary">en minutos</span>
                     </h2>
+                    <p class="text-lg sm:text-xl text-gray-600 mb-12 text-center lg:text-left max-w-xl leading-relaxed">
+                        Al registrarte te enviaremos actializaciones sobre el lanzamiento.</p>
 
                     <!-- Steps -->
                     <div class="space-y-6 w-full">
